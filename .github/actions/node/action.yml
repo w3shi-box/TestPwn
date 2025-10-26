@@ -1,6 +1,12 @@
-steps:
-  - name: Checkout repository
-    uses: actions/checkout@v4
+name: "Node Setup"
+description: "Set up Node environment"
+runs:
+  using: "composite"
+  steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
 
-  - name: Run local action
-    uses: ./.github/actions/node
+    - name: Setup Node
+      uses: actions/setup-node@v4
+      with:
+        node-version: 18
